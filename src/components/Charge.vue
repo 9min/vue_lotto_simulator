@@ -104,7 +104,7 @@ export default {
 .content {
   position: relative;
   width: 240px;
-  padding: 10px 10px 50px 10px;
+  padding: 10px 10px 60px 10px;
   margin-top: 35px;
   background-color: #fff;
 }
@@ -157,7 +157,7 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
+  height: 46px;
   background-color: #fff;
   font-size: 18px;
   border: 0;

@@ -17,11 +17,14 @@
       </ul>
       <div :class="$style.footer">
         <button v-if="myNumber.length > 0" type="button" @click="onResetChoose"
-          :class="[$style.btn_footer, $style.btn_reset, getFooterHalfStyle()]">다시선택</button>
+          :class="[$style.btn_footer, $style.btn_reset, getFooterHalfStyle()]"><!--
+          -->다시<br/>선택</button>
         <button type="button" @click="onAutoChoose"
-          :class="[$style.btn_footer, $style.btn_auto, getFooterHalfStyle()]">자동선택</button>
+          :class="[$style.btn_footer, $style.btn_auto, getFooterHalfStyle()]"><!--
+          -->자동<br/>선택</button>
         <button v-if="myNumber.length === 6" type="button" @click="onHideChoose"
-          :class="[$style.btn_footer, $style.btn_ok]">선택완료</button>
+          :class="[$style.btn_footer, $style.btn_ok]"><!--
+          -->선택<br/>완료</button>
       </div>
     </div>
   </section>
@@ -132,7 +135,8 @@ export default {
 }
 .btn_footer {
   width: 83px;
-  padding: 10px 0;
+  height: 50px;
+  line-height: 20px;
   background-color: #fff;
   border: none;
   font-size: 18px;
