@@ -12,7 +12,7 @@
       </li>
     </ul>
     <button type="button" @click="onShowChoose" :class="$style.btn_select">
-      <i class="material-icons" :class="$style.ico">autorenew</i>
+      <i class="material-icons" :class="$style.ico">add</i>
     </button>
   </section>
 </template>
