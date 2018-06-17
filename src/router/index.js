@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 // import Main from '@/views/Main';
+// import Choose from '@/components/Choose';
+// import Charge from '@/components/Charge';
 
 Vue.use(Router);
 
@@ -23,15 +25,22 @@ export default new Router({
         },
       ],
     },
-    /*
-    { path: '/', name: 'main', component: Main },
-    */
-    /*
+  /*
     {
-      path:'/contacts', name:'contacts', component:ContactList, children : [
-        { path:'add', name:'addcontact',component: ContactForm },
-        { path:'update/:no', name:'updatecontact',component: ContactForm, props : true },
-        { path:'photo/:no', name:'updatephoto',component: UpdatePhoto, props: true },
+      path: '/',
+      name: 'main',
+      component: Main,
+      children: [
+        {
+          path: '/choose',
+          name: 'choose',
+          component: Choose,
+        },
+        {
+          path: '/charge',
+          name: 'charge',
+          component: Charge,
+        },
       ],
     },
     */
