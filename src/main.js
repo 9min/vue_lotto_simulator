@@ -10,6 +10,7 @@ import 'babel-polyfill';
 import './assets/css/reset.css';
 import './assets/css/common.css';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
+// import './assets/css/material-design-icons.css';
 
 Vue.config.productionTip = false;
 
