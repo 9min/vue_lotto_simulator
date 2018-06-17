@@ -65,6 +65,9 @@ export default {
   },
   created() {
     this.EventBus.$on('lottery', this.lottery);
+    if (this.myNumber.length === 0) {
+      this.$router.push('choose');
+    }
   },
   methods: {
     lottery() {
@@ -74,13 +77,6 @@ export default {
     },
     noMoney() {
       this.$store.commit(STOP);
-      /*
-      if (confirm(NO_MONEY)) {
-        console.log('충전 화면으로..');
-        // 충전 화면 없으니 임시로 돈 충전
-        this.$store.commit(ADD_MONEY, { money: DEFAULT_MONEY });
-      }
-      */
     },
     play() {
       (async () => {

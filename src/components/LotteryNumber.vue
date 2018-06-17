@@ -7,7 +7,7 @@
           :style="{ backgroundColor:getColor(num) }">{{ num }}</span>
       </li>
       <li :class="$style.item">
-        <i :class="$style.ico_add" class="material-icons">add</i>
+        <i class="material-icons" :class="$style.ico">add</i>
       </li>
       <li :class="$style.item">
         <span :class="$style.num"
@@ -81,9 +81,9 @@ export default {
   color: #fff;
   transition: background-color 0.3s ease;
 }
-.ico_add {
+.ico {
   height: 45px;
-  line-height: 45px;
+  margin-top: 11px;
   color: #666;
 }
 .opacity {

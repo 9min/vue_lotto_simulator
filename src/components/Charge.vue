@@ -1,5 +1,5 @@
 <template>
-  <section @click="onHideCharge" :class="$style.dialog">
+  <section :class="$style.dialog">
     <h2 class="blind">금액 충전</h2>
     <div :class="$style.content">
       <div :class="$style.result">
@@ -21,6 +21,8 @@
           -->+{{ money | numberWithCommas }}</span>
         </li>
       </ul>
+      <button type="button" @click="onHideCharge"
+          :class="[$style.btn_footer, $style.btn_close]">닫기</button>
     </div>
   </section>
 </template>
@@ -60,10 +62,8 @@ export default {
       this.isAdd = false;
       this.timer = null;
     },
-    onHideCharge(evt) {
-      if (evt.target.getAttribute('class') === this.$style.dialog) {
-        this.$router.go(-1);
-      }
+    onHideCharge() {
+      this.$router.go(-1);
     },
     beforeEnter(el) {
       const element = el;
@@ -102,8 +102,9 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .content {
+  position: relative;
   width: 240px;
-  padding: 10px;
+  padding: 10px 10px 50px 10px;
   margin-top: 35px;
   background-color: #fff;
 }
@@ -150,6 +151,21 @@ export default {
   color: #fff;
   border: solid 1px #333;
   cursor: pointer;
+}
+.btn_footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  font-size: 18px;
+  border: 0;
+  border-top: solid 1px #aaa;
+  cursor: pointer;
+}
+.btn_close {
+  color: #333;
 }
 .color_1000 {
   background-color: rgb(93, 163, 255);

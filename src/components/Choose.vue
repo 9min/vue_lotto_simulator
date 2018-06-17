@@ -1,5 +1,5 @@
 <template>
-  <section @click="onHideChoose" :class="$style.dialog">
+  <section :class="$style.dialog">
     <h2 class="blind">번호 선택</h2>
     <div :class="$style.content">
       <ul :class="$style.choose_list">
@@ -16,10 +16,12 @@
         </li>
       </ul>
       <div :class="$style.footer">
-        <button type="button" @click="onResetChoose"
-          :class="[$style.btn_footer, $style.btn_reset]">리셋</button>
+        <button v-if="myNumber.length > 0" type="button" @click="onResetChoose"
+          :class="[$style.btn_footer, $style.btn_reset, getFooterHalfStyle()]">다시선택</button>
         <button type="button" @click="onAutoChoose"
-          :class="[$style.btn_footer, $style.btn_auto]">자동선택</button>
+          :class="[$style.btn_footer, $style.btn_auto, getFooterHalfStyle()]">자동선택</button>
+        <button v-if="myNumber.length === 6" type="button" @click="onHideChoose"
+          :class="[$style.btn_footer, $style.btn_ok]">선택완료</button>
       </div>
     </div>
   </section>
@@ -48,10 +50,8 @@ export default {
       }
       return false;
     },
-    onHideChoose(evt) {
-      if (evt.target.getAttribute('class') === this.$style.dialog) {
-        this.$router.go(-1);
-      }
+    onHideChoose() {
+      this.$router.go(-1);
     },
     onChooseNumber(choose) {
       const num = Number(choose);
@@ -66,6 +66,12 @@ export default {
     },
     onAutoChoose() {
       this.$store.commit(MY_NUMBER, { numbers: lotto().numbers });
+    },
+    getFooterHalfStyle() {
+      if (this.myNumber.length === 6) {
+        return '';
+      }
+      return this.$style.btn_footer_half;
     },
   },
 };
@@ -86,7 +92,6 @@ export default {
 }
 .content {
   width: 260px;
-  height: 370px;
   margin-top: 35px;
   background-color: #fff;
 }
@@ -94,7 +99,7 @@ export default {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 10px 10px 10px 10px;
+  padding: 10px 10px 0 10px;
 }
 .choose_item {
   margin: 1px;
@@ -121,20 +126,30 @@ export default {
 }
 .footer {
   display: block;
-  padding-top: 2px;
+  margin-top: 10px;
   text-align: center;
+  border-top: solid 1px #aaa;
 }
 .btn_footer {
-  width: 40%;
+  width: 83px;
+  padding: 10px 0;
   background-color: #fff;
   border: none;
   font-size: 18px;
   cursor: pointer;
 }
+.btn_footer_half {
+  width: 125px;
+}
 .btn_reset {
   color: #f20;
+  border-right: solid 1px #aaa;
 }
 .btn_auto {
   color:#05f;
+}
+.btn_ok {
+  color: #333;
+  border-left: solid 1px #aaa;
 }
 </style>

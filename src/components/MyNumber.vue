@@ -104,6 +104,7 @@ export default {
   float: right;
   width: 43px;
   height: 43px;
+  padding: 0;
   margin: 2px 8px 0 0;
   color: #333;
   border: solid 1px #333;

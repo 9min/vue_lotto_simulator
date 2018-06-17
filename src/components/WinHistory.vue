@@ -37,6 +37,7 @@ export default {
   padding-right: 10px;
   overflow-y: auto;
   text-align: right;
+  -webkit-overflow-scrolling: auto;
 }
 .item {
   padding: 3px;

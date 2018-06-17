@@ -9,7 +9,7 @@ export default {
     { min: 31, max: 40, value: 'gray' },
     { min: 41, max: 45, value: 'green' },
   ],
-  myNumber: [3, 15, 18, 23, 37, 43],
+  myNumber: [],
   lotteryCount: 0,
   lotteryNumber: [1, 9, 17, 25, 33, 41],
   lotteryBonus: 45,
