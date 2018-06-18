@@ -11,8 +11,9 @@
           }">{{ num }}</span>
       </li>
     </ul>
-    <button type="button" @click="onShowChoose" :class="$style.btn_select">
-      <i class="material-icons" :class="$style.ico">add</i>
+    <button type="button" @click="onShowChoose" :class="$style.btn_choose">
+      <!--<i class="material-icons" :class="$style.ico">add</i>-->
+      <span class="txt_btn">번호<br/>선택</span>
     </button>
   </section>
 </template>
@@ -90,20 +91,21 @@ export default {
 .num {
   display: inline-block;
   box-sizing: border-box;
-  width: 43px;
-  height: 43px;
-  line-height: 40px;
-  margin: 2px;
+  width: 42px;
+  height: 42px;
+  line-height: 39px;
+  margin: 1px;
   font-size: 20px;
   text-align: center;
   border-radius: 50%;
   border: solid 1px #fff;
   transition: background-color 0.3s ease;
 }
-.btn_select {
+.btn_choose {
   float: right;
   width: 43px;
   height: 43px;
+  line-height: 14px;
   padding: 0;
   margin: 2px 8px 0 0;
   color: #333;

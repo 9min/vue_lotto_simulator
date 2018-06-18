@@ -100,8 +100,8 @@ export default {
 <style module>
 .container {
   position: relative;
-  width: 360px;
-  min-width: 360px;
+  width: 340px;
+  min-width: 340px;
   margin-top: 10px;
 }
 .header {

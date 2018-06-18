@@ -71,10 +71,10 @@ export default {
 }
 .num {
   display: inline-block;
-  width: 43px;
-  height: 43px;
-  line-height: 40px;
-  margin: 2px;
+  width: 42px;
+  height: 42px;
+  line-height: 39px;
+  margin: 1px;
   font-size: 20px;
   text-align: center;
   border-radius: 50%;
