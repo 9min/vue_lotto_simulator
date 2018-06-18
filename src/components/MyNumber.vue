@@ -12,7 +12,6 @@
       </li>
     </ul>
     <button type="button" @click="onShowChoose" :class="$style.btn_choose">
-      <!--<i class="material-icons" :class="$style.ico">add</i>-->
       <span class="txt_btn">번호<br/>선택</span>
     </button>
   </section>

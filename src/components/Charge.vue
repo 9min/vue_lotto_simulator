@@ -17,8 +17,8 @@
       <ul :class="$style.list">
         <li :class="$style.item" v-for="(money, idx) in choose" :key="idx">
           <span @click="onAddMoney(money)"
-            :class="[$style.money, $style['color_' + money]]"><!--
-          -->+{{ money | numberWithCommas }}</span>
+            :class="[$style.money, $style['color_' + money]]">
+            +{{ money | numberWithCommas }}</span>
         </li>
       </ul>
       <button type="button" @click="onHideCharge"
@@ -73,15 +73,13 @@ export default {
     enter(el, done) {
       Velocity(el,
         { translateY: 0 },
-        { duration: 100 },
-        { complete: done },
+        { duration: 100, complete: done },
       );
     },
     leave(el, done) {
       Velocity(el,
         { opacity: 0, translateY: '-5px' },
-        { duration: 100 },
-        { complete: done },
+        { duration: 100, complete: done },
       );
     },
   },

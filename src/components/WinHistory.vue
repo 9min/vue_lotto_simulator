@@ -3,11 +3,11 @@
     <slot name="title"></slot>
     <ul :class="$style.list">
       <li :class="$style.item" v-for="(value, idx) in winHistory" :key="idx">
-        <span><!--
-          -->{{ value.lotteryCount | numberWithCommas }}<!--
-          --><span :class="$style.small">회차 </span><!--
-          -->{{ value.ranking }}<!--
-          --><span :class="$style.small">등 당첨</span>
+        <span>
+          {{ value.lotteryCount | numberWithCommas }}
+          <span :class="$style.small">회차 </span>
+          {{ value.ranking }}
+          <span :class="$style.small">등 당첨</span>
         </span>
       </li>
     </ul>
