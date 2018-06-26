@@ -4,6 +4,9 @@ import state from './state';
 import getters from './getters';
 import mutations from './mutations';
 import actions from './actions';
+import es6Promise from 'es6-promise';
+
+es6Promise.polyfill();
 
 Vue.use(Vuex);
 
