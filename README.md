@@ -1,6 +1,8 @@
 # lotto_simulator
 
-> A Vue.js project
+가상 로또 추첨기
+
+[프로젝트 확인하기(임시도메인)](http://www.gumin.co.kr)
 
 ## Build Setup
 
