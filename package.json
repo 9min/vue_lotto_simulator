@@ -4,9 +4,11 @@
   "description": "A Vue.js project",
   "author": "9min <gm0711@naver.com>",
   "private": true,
+  "homepage": "https://9min.github.io/vue_lotto_simulator/",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js --open --hot",
     "start": "npm run dev",
+    "deploy": "gh-pages -d build",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
@@ -15,6 +17,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "es6-promise": "^4.2.4",
+    "gh-pages": "^2.0.1",
     "material-design-icons-iconfont": "^3.0.3",
     "velocity-animate": "^1.5.1",
     "vue": "^2.5.2",
