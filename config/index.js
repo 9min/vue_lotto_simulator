@@ -42,13 +42,14 @@ module.exports = {
   },
 
   build: {
+    publicPath: '/vue-lotto-simulator/',
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: 'vue-lotto-simulator/',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps
