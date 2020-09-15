@@ -28,17 +28,17 @@
 </template>
 
 <script>
-import { APP_NAME, PLAY_INTERVAL } from '@/constants/base';
-import { STOP } from '@/store/mutations-type';
-import { LOTTERY } from '@/store/actions-type';
-import { mapGetters } from 'vuex';
-import { delay } from '@/common/utils';
-import Controller from '@/components/Controller';
-import LotteryNumber from '@/components/LotteryNumber';
-import MyNumber from '@/components//MyNumber';
-import WinHistory from '@/components/WinHistory';
-import Result from '@/components/Result';
-import Wallet from '@/components/Wallet';
+import { APP_NAME, PLAY_INTERVAL } from "@/constants/base";
+import { STOP } from "@/store/mutations-type";
+import { LOTTERY } from "@/store/actions-type";
+import { mapGetters } from "vuex";
+import { delay } from "@/common/utils";
+import Controller from "@/components/Controller";
+import LotteryNumber from "@/components/LotteryNumber";
+import MyNumber from "@/components//MyNumber";
+import WinHistory from "@/components/WinHistory";
+import Result from "@/components/Result";
+import Wallet from "@/components/Wallet";
 
 export default {
   components: {
@@ -47,26 +47,20 @@ export default {
     MyNumber,
     WinHistory,
     Result,
-    Wallet,
+    Wallet
   },
   data() {
     return {
-      appName: APP_NAME,
+      appName: APP_NAME
     };
   },
   computed: {
-    ...mapGetters([
-      'color',
-      'isReady',
-      'isPlaying',
-      'isMoney',
-      'myNumber',
-    ]),
+    ...mapGetters(["color", "isReady", "isPlaying", "isMoney", "myNumber"])
   },
   created() {
-    this.EventBus.$on('lottery', this.lottery);
+    this.EventBus.$on("lottery", this.lottery);
     if (this.myNumber.length === 0) {
-      this.$router.push('choose');
+      this.$router.push("choose");
     }
   },
   methods: {
@@ -91,9 +85,9 @@ export default {
         const item = this.color[i];
         if (item.min <= num && num <= item.max) return item.value;
       }
-      return 'initial';
-    },
-  },
+      return "initial";
+    }
+  }
 };
 </script>
 

@@ -4,47 +4,66 @@
     <div :class="$style.content">
       <ul :class="$style.choose_list">
         <li :class="$style.choose_item" v-for="(num, idx) in numbers" :key="idx">
-          <span @click="onChooseNumber(num)"
+          <span
+            @click="onChooseNumber(num)"
             :class="$style.choose_num"
             :style="isChooseed(num)
               ? 'background-color: #333; border-color: #000; color: #fff'
               : 'background-color: #fff; border-color: #f00;'"
-            >{{ num }}</span>
+          >{{ num }}</span>
         </li>
         <li :class="$style.choose_item" v-for="idx in hideNumbers" :key="idx">
           <span :class="[$style.choose_num, $style.hide]"></span>
         </li>
       </ul>
       <div :class="$style.footer">
-        <button v-if="myNumber.length > 0" type="button" @click="onResetChoose"
-          :class="[$style.btn_footer, $style.btn_reset, getFooterHalfStyle()]">
-          다시<br/>선택</button>
-        <button type="button" @click="onAutoChoose"
-          :class="[$style.btn_footer, $style.btn_auto, getFooterHalfStyle()]">
-          자동<br/>선택</button>
-        <button v-if="myNumber.length === 6" type="button" @click="onHideChoose"
-          :class="[$style.btn_footer, $style.btn_ok]">
-          선택<br/>완료</button>
+        <button
+          v-if="myNumber.length > 0"
+          type="button"
+          @click="onResetChoose"
+          :class="[$style.btn_footer, $style.btn_reset, getFooterHalfStyle()]"
+        >다시
+          <br>선택
+        </button>
+        <button
+          type="button"
+          @click="onAutoChoose"
+          :class="[$style.btn_footer, $style.btn_auto, getFooterHalfStyle()]"
+        >자동
+          <br>선택
+        </button>
+        <button
+          v-if="myNumber.length === 6"
+          type="button"
+          @click="onHideChoose"
+          :class="[$style.btn_footer, $style.btn_ok]"
+        >선택
+          <br>완료
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { MY_NUMBER, REMOVE_MY_NUMBER, ADD_MY_NUMBER } from '@/store/mutations-type';
-import { lotto } from '@/common/utils';
+import { mapGetters } from "vuex";
+import {
+  MY_NUMBER,
+  REMOVE_MY_NUMBER,
+  ADD_MY_NUMBER
+} from "@/store/mutations-type";
+import { lotto } from "@/common/utils";
 
 export default {
-  name: 'choose',
+  name: "choose",
   data() {
     return {
       numbers: Array.from(Array(45).keys(), v => v + 1),
-      hideNumbers: Array(4),
+      hideNumbers: Array(4)
     };
   },
   computed: {
-    ...mapGetters(['color', 'myNumber', 'lotteryNumber', 'lotteryBonus']),
+    ...mapGetters(["color", "myNumber", "lotteryNumber", "lotteryBonus"])
   },
   methods: {
     isChooseed(num) {
@@ -72,11 +91,11 @@ export default {
     },
     getFooterHalfStyle() {
       if (this.myNumber.length === 6) {
-        return '';
+        return "";
       }
       return this.$style.btn_footer_half;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -150,7 +169,7 @@ export default {
   border-right: solid 1px #aaa;
 }
 .btn_auto {
-  color:#05f;
+  color: #05f;
 }
 .btn_ok {
   color: #333;

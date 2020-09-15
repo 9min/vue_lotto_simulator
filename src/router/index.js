@@ -1,48 +1,37 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-// import Main from '@/views/Main';
-// import Choose from '@/components/Choose';
-// import Charge from '@/components/Charge';
+import Vue from "vue";
+import Router from "vue-router";
+import { GIT_REPO } from "@/constants/base";
 
 Vue.use(Router);
 
+let productionPath = "";
+
+if (process.env.NODE_ENV == "production") {
+  productionPath = `/${GIT_REPO}`;
+}
+
 export default new Router({
-  mode: 'history',
+  mode: "history",
   routes: [
     {
-      path: '/',
-      component: () => import('@/views/Main'),
+      path: `${productionPath}/`,
+      component: () => import("@/views/Main"),
       children: [
         {
-          path: 'choose',
-          name: 'choose',
-          component: () => import('@/components/Choose'),
+          path: "choose",
+          name: "choose",
+          component: () => import("@/components/Choose"),
         },
         {
-          path: 'charge',
-          name: 'charge',
-          component: () => import('@/components/Charge'),
+          path: "charge",
+          name: "charge",
+          component: () => import("@/components/Charge"),
         },
       ],
     },
-  /*
     {
-      path: '/',
-      name: 'main',
-      component: Main,
-      children: [
-        {
-          path: '/choose',
-          name: 'choose',
-          component: Choose,
-        },
-        {
-          path: '/charge',
-          name: 'charge',
-          component: Charge,
-        },
-      ],
+      path: `choose`,
+      redirect: `${productionPath}/`,
     },
-    */
   ],
 });

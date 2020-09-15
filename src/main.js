@@ -1,16 +1,12 @@
-import Vue from 'vue';
-import App from './App';
-import store from './store';
-import router from './router';
-import EventBus from './common/eventBus';
-import { numberWithCommas } from './common/utils';
+import Vue from "vue";
+import App from "./App";
+import store from "./store";
+import router from "./router";
+import EventBus from "./common/eventBus";
+import { numberWithCommas } from "./common/utils";
 
-import 'velocity-animate';
-import 'babel-polyfill';
-import './assets/css/reset.css';
-import './assets/css/common.css';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
-// import './assets/css/material-design-icons.css';
+import "./assets/css/reset.css";
+import "./assets/css/common.css";
 
 Vue.config.productionTip = false;
 
@@ -20,12 +16,11 @@ Vue.mixin({
   },
 });
 
-Vue.filter('numberWithCommas', numberWithCommas);
+Vue.filter("numberWithCommas", numberWithCommas);
 
 new Vue({
-  el: '#app',
+  render: (h) => h(App),
   store,
   router,
-  template: '<App/>',
   components: { App },
-});
+}).$mount("#app");

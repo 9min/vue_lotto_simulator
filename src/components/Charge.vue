@@ -7,47 +7,53 @@
           <transition
             v-on:before-enter="beforeEnter"
             v-on:enter="enter"
-            v-on:leave="leave">
-            <strong v-if="isAdd"
-              :class="$style.charge">+{{ addMoney | numberWithCommas }}</strong>
+            v-on:leave="leave"
+          >
+            <strong v-if="isAdd" :class="$style.charge"
+              >+{{ addMoney | numberWithCommas }}</strong
+            >
           </transition>
         </div>
-        <em :class="$style.have">{{ wallet.have | numberWithCommas }}원</em> 남음
+        <em :class="$style.have">{{ wallet.have | numberWithCommas }}원</em>
+        남음
       </div>
       <ul :class="$style.list">
         <li :class="$style.item" v-for="(money, idx) in choose" :key="idx">
-          <span @click="onAddMoney(money)"
-            :class="[$style.money, $style['color_' + money]]">
-            +{{ money | numberWithCommas }}</span>
+          <span
+            @click="onAddMoney(money)"
+            :class="[$style.money, $style['color_' + money]]"
+            >+{{ money | numberWithCommas }}</span
+          >
         </li>
       </ul>
-      <button type="button" @click="onHideCharge"
-          :class="[$style.btn_footer, $style.btn_close]">닫기</button>
+      <button
+        type="button"
+        @click="onHideCharge"
+        :class="[$style.btn_footer, $style.btn_close]"
+      >
+        닫기
+      </button>
     </div>
   </section>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { ADD_MONEY } from '@/store/mutations-type';
+import { mapGetters } from "vuex";
+import { ADD_MONEY } from "@/store/mutations-type";
+import Velocity from "velocity-animate";
 
 export default {
-  name: 'charge',
+  name: "charge",
   data() {
     return {
       timer: null,
       isAdd: false,
       addMoney: 0,
-      choose: [
-        50000,
-        10000,
-        5000,
-        1000,
-      ],
+      choose: [50000, 10000, 5000, 1000],
     };
   },
   computed: {
-    ...mapGetters(['wallet']),
+    ...mapGetters(["wallet"]),
   },
   methods: {
     onAddMoney(money) {
@@ -68,18 +74,16 @@ export default {
     beforeEnter(el) {
       const element = el;
       element.style.opacity = 1;
-      element.style.transform = 'translateY(0)';
+      element.style.transform = "translateY(0)";
     },
     enter(el, done) {
-      Velocity(el,
-        { translateY: 0 },
-        { duration: 100, complete: done },
-      );
+      Velocity(el, { translateY: 0 }, { duration: 100, complete: done });
     },
     leave(el, done) {
-      Velocity(el,
-        { opacity: 0, translateY: '-5px' },
-        { duration: 100, complete: done },
+      Velocity(
+        el,
+        { opacity: 0, translateY: "-5px" },
+        { duration: 100, complete: done }
       );
     },
   },

@@ -1,5 +1,5 @@
-import { LOTTERY } from './actions-type';
-import { lotto, delay } from '@/common/utils';
+import { LOTTERY } from "./actions-type";
+import { lotto, delay } from "@/common/utils";
 
 export default {
   [LOTTERY]: (context) => {
@@ -14,8 +14,8 @@ export default {
     getLotto().then((v) => {
       context.commit(`${LOTTERY}`, {
         number: v.numbers,
-        bonus: v.bonus,
+        bonus: v.bonus
       });
     });
-  },
+  }
 };

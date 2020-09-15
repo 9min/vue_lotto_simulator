@@ -12,21 +12,21 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import { STOP } from '@/store/mutations-type';
-import { CHARGE } from '@/constants/router';
+import { mapGetters } from "vuex";
+import { STOP } from "@/store/mutations-type";
+import { CHARGE } from "@/constants/router";
 
 export default {
-  name: 'wallet',
+  name: "wallet",
   computed: {
-    ...mapGetters(['wallet']),
+    ...mapGetters(["wallet"])
   },
   methods: {
     onShowCharge() {
       this.$store.commit(STOP);
       this.$router.push(CHARGE);
-    },
-  },
+    }
+  }
 };
 </script>
 
